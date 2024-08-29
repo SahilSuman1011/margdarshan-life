@@ -1,6 +1,4 @@
 import { Moon, Sun } from "lucide-react"
-import React from "react"
-
 export default function CustomSwitch({ isLightTheme, updateTheme }) {
   return (
     <div

@@ -1,7 +1,6 @@
 "use client"
+import logo from "@/public/logo.svg"
 
-import React, { useContext } from "react"
-import logo from "../../../public/logo.svg"
 import {
   BadgeHelp,
   Bolt,
