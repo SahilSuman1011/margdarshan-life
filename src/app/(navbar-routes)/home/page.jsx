@@ -8,11 +8,11 @@ import {
   CalendarCheck,
   Bot,
   Video,
-  Code,
   MessageCircle,
 } from "lucide-react"
 import Greetings from "./components/greetings"
 import PrimaryButton from "@/components/buttons/primary_button"
+import StatCard from "./components/status_card"
 
 export default function Home() {
   const [menteeStats, setMenteeStats] = useState({
@@ -22,7 +22,6 @@ export default function Home() {
     upcomingSessions: 0,
   })
 
-  // Simulating data fetch (replace with actual API call)
   useEffect(() => {
     setMenteeStats({
       sessionsAttended: 12,
@@ -121,6 +120,7 @@ export default function Home() {
                 <p className="text-sm text-gray-600">Duration: 1.5h</p>
               </div>
             </div>
+
             <div className="flex items-center justify-center p-4 bg-gray-100 rounded-xl">
               <p className="text-lg font-medium text-gray-500">
                 That's all for now!
@@ -129,18 +129,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </div>
-  )
-}
-
-function StatCard({ icon, title, value, titleColor, bgColor = "bg-white" }) {
-  return (
-    <div
-      className={`${bgColor} w-[270px] rounded-3xl shadow-lg shadow-gray-300 p-6 flex flex-col items-center justify-center`}
-    >
-      <div className="text-4xl mb-4 bg-gray-100 p-3 rounded-xl">{icon}</div>
-      <h3 className={` ${titleColor} text-lg font-medium mb-2`}>{title}</h3>
-      <p className="text-3xl font-semibold">{value}</p>
     </div>
   )
 }
