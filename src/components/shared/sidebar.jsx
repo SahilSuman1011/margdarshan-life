@@ -1,6 +1,6 @@
 "use client"
 import logo from "@/public/logo.svg"
-
+import { usePathname } from "next/navigation"
 import {
   Bolt,
   House,
@@ -15,6 +15,7 @@ import CustomSwitch from "./custom-switch"
 import { ThemeContext } from "@/context/theme"
 import Image from "next/image"
 import { useContext } from "react"
+import Link from "next/link"
 
 export default function Sidebar() {
   const { isLightTheme, updateTheme } = useContext(ThemeContext)
@@ -22,6 +23,10 @@ export default function Sidebar() {
   const selectedTextColor = "text-white"
   const selectedIconColor = "text-white"
   const iconColor = isLightTheme ? "black" : "#a0a8ff"
+
+  const pathname = usePathname()
+
+  const selectedStyles = ""
 
   return (
     <div
@@ -47,42 +52,105 @@ export default function Sidebar() {
           <div
             className={`${textColor} w-full flex flex-col ml-5 gap-2 text-sm`}
           >
-            <div
-              className={`flex w-[90%] h-[50px] p-3 rounded-2xl items-center gap-3 ${selectedIconColor} bg-[#4956F4] `}
+            <Link
+              href="/home"
+              className={
+                pathname === "/home"
+                  ? `${selectedIconColor} bg-[#4956F4] flex w-[90%] h-[50px] p-3 rounded-2xl items-center gap-3`
+                  : "flex w-[90%] h-[50px] p-3 rounded-2xl items-center gap-3"
+              }
             >
-              <House color={selectedIconColor} />
+              <House
+                color={pathname === "/home" ? selectedIconColor : iconColor}
+              />
               <span>Feed</span>
-            </div>
-            <div className="flex w-[90%] h-[50px] p-3 rounded-xl items-center gap-3 ">
-              <Search color={iconColor} />
+            </Link>
+            <Link
+              href="/search"
+              className={
+                pathname === "/search"
+                  ? `${selectedIconColor} bg-[#4956F4] flex w-[90%] h-[50px] p-3 rounded-2xl items-center gap-3`
+                  : "flex w-[90%] h-[50px] p-3 rounded-2xl items-center gap-3"
+              }
+            >
+              <Search
+                color={pathname === "/search" ? selectedIconColor : iconColor}
+              />
               <span>Search</span>
-            </div>
-            <div className="flex w-[90%] h-[50px] p-3 rounded-xl items-center gap-3 ">
-              <WandSparkles color={iconColor} />
+            </Link>
+            <Link
+              href="/mentors"
+              className={
+                pathname === "/mentors"
+                  ? `${selectedIconColor} bg-[#4956F4] flex w-[90%] h-[50px] p-3 rounded-2xl items-center gap-3`
+                  : "flex w-[90%] h-[50px] p-3 rounded-2xl items-center gap-3"
+              }
+            >
+              <WandSparkles
+                color={pathname === "/mentors" ? selectedIconColor : iconColor}
+              />
               <span>Mentors</span>
-            </div>
-            <div className="flex w-[90%] h-[50px] p-3 rounded-xl items-center gap-3 ">
-              <Video color={iconColor} />
+            </Link>
+            <Link
+              href="/sessions"
+              className={
+                pathname === "/sessions"
+                  ? `${selectedIconColor} bg-[#4956F4] flex w-[90%] h-[50px] p-3 rounded-2xl items-center gap-3`
+                  : "flex w-[90%] h-[50px] p-3 rounded-2xl items-center gap-3"
+              }
+            >
+              <Video
+                color={pathname === "/sessions" ? selectedIconColor : iconColor}
+              />
               <span>Sessions</span>
-            </div>
-            <div className="flex w-[90%] h-[50px] p-3 rounded-xl items-center gap-3 ">
-              <MessagesSquare color={iconColor} />
+            </Link>
+            <Link
+              href="/inbox"
+              className={
+                pathname === "/inbox"
+                  ? `${selectedIconColor} bg-[#4956F4] flex w-[90%] h-[50px] p-3 rounded-2xl items-center gap-3`
+                  : "flex w-[90%] h-[50px] p-3 rounded-2xl items-center gap-3"
+              }
+            >
+              <MessagesSquare
+                color={pathname === "/inbox" ? selectedIconColor : iconColor}
+              />
               <span>Inbox</span>
-            </div>
+            </Link>
           </div>
           <div className="flex flex-col gap-7">
             <span className={`${textColor} font-medium text-sm`}>TOOLS</span>
             <div
-              className={`${textColor}  w-full flex flex-col ml-5 gap-2 text-sm`}
+              className={`${textColor} w-full flex flex-col ml-5 gap-2 text-sm`}
             >
-              <div className="flex w-[90%] h-[50px] p-3 rounded-xl items-center gap-3 ">
-                <Bolt color={iconColor} />
+              <Link
+                href="/settings"
+                className={
+                  pathname === "/settings"
+                    ? `${selectedIconColor} bg-[#4956F4] flex w-[90%] h-[50px] p-3 rounded-2xl items-center gap-3`
+                    : "flex w-[90%] h-[50px] p-3 rounded-2xl items-center gap-3"
+                }
+              >
+                <Bolt
+                  color={
+                    pathname === "/settings" ? selectedIconColor : iconColor
+                  }
+                />
                 <span>Settings</span>
-              </div>
-              <div className="flex w-[90%] h-[50px] p-3 rounded-xl items-center gap-3 ">
-                <MessageCircleQuestion color={iconColor} />
+              </Link>
+              <Link
+                href="/help"
+                className={
+                  pathname === "/help"
+                    ? `${selectedIconColor} bg-[#4956F4] flex w-[90%] h-[50px] p-3 rounded-2xl items-center gap-3`
+                    : "flex w-[90%] h-[50px] p-3 rounded-2xl items-center gap-3"
+                }
+              >
+                <MessageCircleQuestion
+                  color={pathname === "/help" ? selectedIconColor : iconColor}
+                />
                 <span>Help</span>
-              </div>
+              </Link>
             </div>
           </div>
         </div>
