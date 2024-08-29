@@ -5,7 +5,7 @@ export default function layout({ children }) {
     <div className="h-full flex w-full">
       <Sidebar />
 
-      <main className="max-h-[100vh] overflow-y-auto">{children}</main>
+      <main className="max-h-[100vh] overflow-y-auto w-full">{children}</main>
     </div>
   )
 }
