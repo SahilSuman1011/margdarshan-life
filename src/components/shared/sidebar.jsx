@@ -2,10 +2,7 @@
 import logo from "@/public/logo.svg"
 
 import {
-  BadgeHelp,
   Bolt,
-  CodeXml,
-  CreditCard,
   House,
   MessageCircleQuestion,
   MessagesSquare,
@@ -17,6 +14,7 @@ import {
 import CustomSwitch from "./custom-switch"
 import { ThemeContext } from "@/context/theme"
 import Image from "next/image"
+import { useContext } from "react"
 
 export default function Sidebar() {
   const { isLightTheme, updateTheme } = useContext(ThemeContext)
