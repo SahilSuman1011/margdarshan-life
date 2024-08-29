@@ -63,7 +63,7 @@ export default function Sidebar() {
               <House
                 color={pathname === "/home" ? selectedIconColor : iconColor}
               />
-              <span>Feed</span>
+              <span>Dashboard</span>
             </Link>
             <Link
               href="/search"

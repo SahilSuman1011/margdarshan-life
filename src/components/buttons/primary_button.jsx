@@ -4,6 +4,7 @@ export default function PrimaryButton({
   width,
   height,
   buttonText,
+  rounded = "rounded-2xl",
 }) {
   return (
     <div
@@ -13,7 +14,7 @@ export default function PrimaryButton({
         (disabled
           ? "bg-[#4956F4]/70 hover:cursor-default"
           : "hover:cursor-pointer hover:bg-[#5e6bfe]") +
-        ` transition-all duration-100 rounded-2xl flex justify-center text-white items-center font-medium bg-[#4956F4]`
+        ` transition-all duration-100 ${rounded} flex justify-center text-white items-center font-medium bg-[#4956F4]`
       }
     >
       {buttonText}
