@@ -1,5 +1,5 @@
 Margdarshan.life
-This is Mentor Connect Platform designed to provide students facility to connect with the mentors they need .
+This is Mentor Connect Platform designed to provide students facility to connect with the mentors they need 
 ## Getting Started
 
 First, run the development server:
