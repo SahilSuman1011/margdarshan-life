@@ -11,8 +11,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={montserrat.className}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={montserrat.className} suppressHydrationWarning>
         <AppThemeProvider>{children}</AppThemeProvider>
       </body>
     </html>

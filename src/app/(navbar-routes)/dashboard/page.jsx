@@ -32,7 +32,7 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="container mx-auto px-4 py-8 flex flex-col h-full gap-4">
+    <div className="px-4 py-8 flex flex-col h-full gap-4">
       <Greetings />
       <div className="flex flex-row gap-8 h-full justify-between">
         <div className="flex flex-col gap-4">
@@ -123,7 +123,7 @@ export default function Home() {
 
             <div className="flex items-center justify-center p-4 bg-gray-100 rounded-xl">
               <p className="text-lg font-medium text-gray-500">
-                That's all for now!
+                Thats all for now!
               </p>
             </div>
           </div>
