@@ -20,25 +20,22 @@ import Link from "next/link"
 export default function Sidebar() {
   const { isLightTheme, updateTheme } = useContext(ThemeContext)
   const textColor = isLightTheme ? "text-black" : "text-white"
-  const selectedTextColor = "text-white"
   const selectedIconColor = "text-white"
   const iconColor = isLightTheme ? "black" : "#a0a8ff"
 
   const pathname = usePathname()
-
-  const selectedStyles = ""
 
   return (
     <div
       id="sidebar"
       className={
         (isLightTheme ? "bg-[#F7F8FC]" : "bg-[#09090a]") +
-        " min-w-[250px] p-5 h-[100vh] flex flex-col border-white/20 border-r-[1px] shadow-black/20 shadow-lg stroke-white stroke-2"
+        " hidden overflow-hidden sm:flex sm:w-[90px]  lg:min-w-[250px]  p-5 h-[100vh] flex-col border-white/20 border-r-[1px] shadow-black/20 shadow-lg stroke-white stroke-2"
       }
     >
       <div className="flex items-center gap-3">
         <Image src={logo} alt="logo" width={40} height={40} />
-        <div className="flex flex-col">
+        <div className="hidden lg:flex flex-col">
           <span className={`${textColor} text-lg font-bold`}>Margdarshan</span>
           <span className={`${textColor} text-xs font-medium`}>
             "Connect. Learn. Thrive."
@@ -50,85 +47,87 @@ export default function Sidebar() {
         <div className="mt-12 flex flex-col gap-7">
           <span className={`${textColor} font-medium text-sm`}>MENU</span>
           <div
-            className={`${textColor} w-full flex flex-col ml-5 gap-2 text-sm`}
+            className={`${textColor} w-full flex flex-col items-center lg:items-start lg:ml-5 gap-2 text-sm`}
           >
             <Link
-              href="/home"
+              href="/dashboard"
               className={
-                pathname === "/home"
-                  ? `${selectedIconColor} bg-[#4956F4] flex w-[90%] h-[50px] p-3 rounded-2xl items-center gap-3`
-                  : "flex w-[90%] h-[50px] p-3 rounded-2xl items-center gap-3"
+                pathname === "/dashboard"
+                  ? `${selectedIconColor} bg-[#4956F4] flex w-[50px] lg:w-[90%] rounded-full h-[50px] lg:p-3 lg:rounded-2xl justify-center lg:justify-normal items-center gap-3`
+                  : "flex w-[90%] h-[50px] lg:p-3 rounded-2xl items-center gap-3 justify-center lg:justify-normal"
               }
             >
               <House
-                color={pathname === "/home" ? selectedIconColor : iconColor}
+                color={
+                  pathname === "/dashboard" ? selectedIconColor : iconColor
+                }
               />
-              <span>Dashboard</span>
+              <span className="hidden lg:inline">Dashboard</span>
             </Link>
             <Link
               href="/search"
               className={
                 pathname === "/search"
-                  ? `${selectedIconColor} bg-[#4956F4] flex w-[90%] h-[50px] p-3 rounded-2xl items-center gap-3`
-                  : "flex w-[90%] h-[50px] p-3 rounded-2xl items-center gap-3"
+                  ? `${selectedIconColor} bg-[#4956F4] flex w-[50px] lg:w-[90%] rounded-full h-[50px] lg:p-3 lg:rounded-2xl items-center gap-3 justify-center lg:justify-normal`
+                  : "flex w-[90%] h-[50px] lg:p-3 rounded-2xl items-center gap-3 justify-center lg:justify-normal"
               }
             >
               <Search
                 color={pathname === "/search" ? selectedIconColor : iconColor}
               />
-              <span>Search</span>
+              <span className="hidden lg:inline">Search</span>
             </Link>
             <Link
               href="/mentors"
               className={
                 pathname === "/mentors"
-                  ? `${selectedIconColor} bg-[#4956F4] flex w-[90%] h-[50px] p-3 rounded-2xl items-center gap-3`
-                  : "flex w-[90%] h-[50px] p-3 rounded-2xl items-center gap-3"
+                  ? `${selectedIconColor} bg-[#4956F4] flex w-[50px] lg:w-[90%] rounded-full h-[50px] lg:p-3 lg:rounded-2xl items-center gap-3 justify-center lg:justify-normal`
+                  : "flex w-[90%] h-[50px] lg:p-3 rounded-2xl items-center gap-3 justify-center lg:justify-normal"
               }
             >
               <WandSparkles
                 color={pathname === "/mentors" ? selectedIconColor : iconColor}
               />
-              <span>Mentors</span>
+              <span className="hidden lg:inline">Mentors</span>
             </Link>
             <Link
               href="/sessions"
               className={
                 pathname === "/sessions"
-                  ? `${selectedIconColor} bg-[#4956F4] flex w-[90%] h-[50px] p-3 rounded-2xl items-center gap-3`
-                  : "flex w-[90%] h-[50px] p-3 rounded-2xl items-center gap-3"
+                  ? `${selectedIconColor} bg-[#4956F4] flex w-[50px] lg:w-[90%] rounded-full h-[50px] lg:p-3 lg:rounded-2xl items-center gap-3 justify-center lg:justify-normal`
+                  : "flex w-[90%] h-[50px] lg:p-3 rounded-2xl items-center gap-3 justify-center lg:justify-normal"
               }
             >
               <Video
                 color={pathname === "/sessions" ? selectedIconColor : iconColor}
               />
-              <span>Sessions</span>
+              <span className="hidden lg:inline">Sessions</span>
             </Link>
             <Link
               href="/inbox"
               className={
                 pathname === "/inbox"
-                  ? `${selectedIconColor} bg-[#4956F4] flex w-[90%] h-[50px] p-3 rounded-2xl items-center gap-3`
-                  : "flex w-[90%] h-[50px] p-3 rounded-2xl items-center gap-3"
+                  ? `${selectedIconColor} bg-[#4956F4] flex w-[50px] lg:w-[90%] rounded-full h-[50px] lg:p-3 lg:rounded-2xl items-center gap-3 justify-center lg:justify-normal`
+                  : "flex w-[90%] h-[50px] lg:p-3 rounded-2xl items-center gap-3 justify-center lg:justify-normal"
               }
             >
               <MessagesSquare
                 color={pathname === "/inbox" ? selectedIconColor : iconColor}
               />
-              <span>Inbox</span>
+              <span className="hidden lg:inline">Inbox</span>
             </Link>
           </div>
           <div className="flex flex-col gap-7">
             <span className={`${textColor} font-medium text-sm`}>TOOLS</span>
             <div
-              className={`${textColor} w-full flex flex-col ml-5 gap-2 text-sm`}
+              className={`${textColor} w-full flex flex-col items-center lg:items-start lg:ml-5 gap-2 text-sm`}
             >
               <Link
                 href="/settings"
                 className={
                   pathname === "/settings"
-                    ? `${selectedIconColor} bg-[#4956F4] flex w-[90%] h-[50px] p-3 rounded-2xl items-center gap-3`
-                    : "flex w-[90%] h-[50px] p-3 rounded-2xl items-center gap-3"
+                    ? `${selectedIconColor} bg-[#4956F4] flex w-[50px] lg:w-[90%] rounded-full h-[50px] lg:p-3 lg:rounded-2xl items-center gap-3 justify-center lg:justify-normal`
+                    : "flex w-[90%] h-[50px] lg:p-3 rounded-2xl items-center gap-3 justify-center lg:justify-normal"
                 }
               >
                 <Bolt
@@ -136,28 +135,28 @@ export default function Sidebar() {
                     pathname === "/settings" ? selectedIconColor : iconColor
                   }
                 />
-                <span>Settings</span>
+                <span className="hidden lg:inline">Settings</span>
               </Link>
               <Link
                 href="/help"
                 className={
                   pathname === "/help"
-                    ? `${selectedIconColor} bg-[#4956F4] flex w-[90%] h-[50px] p-3 rounded-2xl items-center gap-3`
-                    : "flex w-[90%] h-[50px] p-3 rounded-2xl items-center gap-3"
+                    ? `${selectedIconColor} bg-[#4956F4] flex w-[50px] lg:w-[90%] rounded-full h-[50px] lg:p-3 lg:rounded-2xl items-center gap-3 justify-center lg:justify-normal`
+                    : "flex w-[90%] h-[50px] lg:p-3 rounded-2xl items-center gap-3 justify-center lg:justify-normal"
                 }
               >
                 <MessageCircleQuestion
                   color={pathname === "/help" ? selectedIconColor : iconColor}
                 />
-                <span>Help</span>
+                <span className="hidden lg:inline">Help</span>
               </Link>
             </div>
           </div>
         </div>
 
         <div className={`flex items-center gap-3 ${textColor} `}>
-          <Sun color={iconColor} />
-          <span className="text-sm">Light Mode</span>
+          <Sun color={iconColor} className="text-sm hidden lg:inline" />
+          <span className="text-sm hidden lg:inline">Light Mode</span>
           <CustomSwitch isLightTheme={isLightTheme} updateTheme={updateTheme} />
         </div>
       </div>
