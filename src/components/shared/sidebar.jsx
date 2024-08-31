@@ -6,7 +6,6 @@ import {
   House,
   MessageCircleQuestion,
   MessagesSquare,
-  Search,
   Sun,
   Video,
   WandSparkles,
@@ -64,19 +63,7 @@ export default function Sidebar() {
               />
               <span className="hidden lg:inline">Dashboard</span>
             </Link>
-            <Link
-              href="/search"
-              className={
-                pathname === "/search"
-                  ? `${selectedIconColor} bg-[#4956F4] flex w-[50px] lg:w-[90%] rounded-full h-[50px] lg:p-3 lg:rounded-2xl items-center gap-3 justify-center lg:justify-normal`
-                  : "flex w-[90%] h-[50px] lg:p-3 rounded-2xl items-center gap-3 justify-center lg:justify-normal"
-              }
-            >
-              <Search
-                color={pathname === "/search" ? selectedIconColor : iconColor}
-              />
-              <span className="hidden lg:inline">Search</span>
-            </Link>
+
             <Link
               href="/mentors"
               className={
