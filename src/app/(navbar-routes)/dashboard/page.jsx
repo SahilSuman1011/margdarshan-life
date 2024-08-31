@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 import {
   Users,
   Clock,
@@ -9,10 +9,10 @@ import {
   Bot,
   Video,
   MessageCircle,
-} from "lucide-react"
-import Greetings from "./components/greetings"
-import PrimaryButton from "@/components/buttons/primary_button"
-import StatCard from "./components/status_card"
+} from "lucide-react";
+import Greetings from "./components/greetings";
+import PrimaryButton from "@/components/buttons/primary_button";
+import StatCard from "./components/status_card";
 
 export default function Home() {
   const [menteeStats, setMenteeStats] = useState({
@@ -20,7 +20,7 @@ export default function Home() {
     totalHours: 0,
     skillsImproved: 0,
     upcomingSessions: 0,
-  })
+  });
 
   useEffect(() => {
     setMenteeStats({
@@ -28,8 +28,8 @@ export default function Home() {
       totalHours: 18,
       skillsImproved: 5,
       upcomingSessions: 2,
-    })
-  }, [])
+    });
+  }, []);
 
   return (
     <div className="px-4 py-8 flex flex-col h-full gap-4">
@@ -65,7 +65,7 @@ export default function Home() {
             />
           </div>
           <div className="h-full w-full bg-white rounded-3xl shadow-lg shadow-gray-300 p-6 flex flex-col">
-            <span className="text-xl font-bold">Book an AI mentor</span>
+            <span className="text-xl font-bold">Talk to AI mentor</span>
 
             <div className="mt-4 flex flex-col items-center">
               <div className="w-24 h-24 bg-[#e0e3ff] rounded-full flex items-center justify-center mb-4">
@@ -80,7 +80,7 @@ export default function Home() {
                 disabled={false}
                 width="35%"
                 height="40px"
-                buttonText="Book Now"
+                buttonText="Talk Now 👈"
                 rounded="rounded-full"
               />
             </div>
@@ -96,7 +96,7 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className="font-semibold">Web Development Basics</h3>
-                  <p className="text-sm text-gray-600">with Manni Don</p>
+                  <p className="text-sm text-gray-600">with John Doe</p>
                 </div>
               </div>
               <div className="text-right">
@@ -130,5 +130,5 @@ export default function Home() {
         </div>
       </div>
     </div>
-  )
+  );
 }
