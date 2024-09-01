@@ -15,21 +15,15 @@ import {
 import {
   MessageCircle,
   Video,
-  DollarSign,
   CalendarIcon,
   ClockIcon,
   HourglassIcon,
   VideoIcon,
   ChevronLeft,
 } from "lucide-react"
-import {
-  DateCalendar,
-  LocalizationProvider,
-  TimePicker,
-} from "@mui/x-date-pickers"
+import { DateCalendar, LocalizationProvider } from "@mui/x-date-pickers"
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFnsV3"
 import { useState } from "react"
-import { format } from "date-fns"
 import Link from "next/link"
 
 const MentorBookingPage = () => {
@@ -41,11 +35,31 @@ const MentorBookingPage = () => {
     videoPrice: 80,
     skills: ["React", "Node.js", "AWS", "Python"],
     pfp: "https://www.propeers.in/_next/image?url=https%3A%2F%2Fcdn.propeers.in%2Fnon-avatar64aa81b6db1fbc50c6ccea9b1704282983850&w=128&q=100",
+    blockedTimeRanges: [
+      { start: "14:00", end: "16:00" },
+      { start: "18:00", end: "19:00" },
+      // Add more ranges as needed
+    ],
   }
   const [selectedDate, setSelectedDate] = useState(null)
   const [selectedTime, setSelectedTime] = useState(null)
   const [sessionDuration, setSessionDuration] = useState(30)
   const [sessionType, setSessionType] = useState("chat")
+
+  const isTimeBlocked = (time) => {
+    const [hour, minute] = time.split(":").map(Number)
+    const currentTime = hour * 60 + minute
+
+    return mentor.blockedTimeRanges.some(({ start, end }) => {
+      const [startHour, startMinute] = start.split(":").map(Number)
+      const [endHour, endMinute] = end.split(":").map(Number)
+
+      const startTime = startHour * 60 + startMinute
+      const endTime = endHour * 60 + endMinute
+
+      return currentTime >= startTime && currentTime < endTime
+    })
+  }
 
   return (
     <div className="mx-auto px-4 py-8 flex h-full flex-col gap-6">
@@ -110,6 +124,8 @@ const MentorBookingPage = () => {
                 aria-label="session-type"
                 name="session-type"
                 className="flex flex-col gap-2"
+                value={sessionType} // Set the value to sessionType state
+                onChange={(e) => setSessionType(e.target.value)} // Update sessionType state on change
               >
                 <FormControlLabel
                   sx={{
@@ -183,6 +199,7 @@ const MentorBookingPage = () => {
                       onClick={() => setSelectedTime(time)}
                       color={selectedTime === time ? "primary" : "default"}
                       variant={selectedTime === time ? "filled" : "outlined"}
+                      disabled={isTimeBlocked(time)} // Disable chip if time is blocked
                     />
                   )
                 })}
@@ -220,7 +237,7 @@ const MentorBookingPage = () => {
                 <VideoIcon className="w-5 h-5 text-indigo-500 mr-3" />
                 <p className="text-gray-700">
                   <span className="font-medium">Session Type:</span>{" "}
-                  {sessionType}
+                  {sessionType === "chat" ? "Chat" : "Video Call"}
                 </p>
               </div>
             </div>
