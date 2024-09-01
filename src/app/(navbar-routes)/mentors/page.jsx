@@ -33,6 +33,7 @@ export default function Mentors() {
       experience: 10,
       previousCompanies: ["Google", "Facebook"],
       skills: ["React", "Node.js", "AWS", "Python"],
+      id: 1,
     },
     // Add more mentor objects here
   ]

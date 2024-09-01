@@ -1,6 +1,6 @@
-"use client";
+"use client"
 
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react"
 import {
   Users,
   Clock,
@@ -9,10 +9,10 @@ import {
   Bot,
   Video,
   MessageCircle,
-} from "lucide-react";
-import Greetings from "./components/greetings";
-import PrimaryButton from "@/components/buttons/primary_button";
-import StatCard from "./components/status_card";
+} from "lucide-react"
+import Greetings from "./components/greetings"
+import PrimaryButton from "@/components/buttons/primary_button"
+import StatCard from "./components/status_card"
 
 export default function Home() {
   const [menteeStats, setMenteeStats] = useState({
@@ -20,7 +20,7 @@ export default function Home() {
     totalHours: 0,
     skillsImproved: 0,
     upcomingSessions: 0,
-  });
+  })
 
   useEffect(() => {
     setMenteeStats({
@@ -28,8 +28,8 @@ export default function Home() {
       totalHours: 18,
       skillsImproved: 5,
       upcomingSessions: 2,
-    });
-  }, []);
+    })
+  }, [])
 
   return (
     <div className="px-4 py-8 flex flex-col h-full gap-4">
@@ -80,7 +80,7 @@ export default function Home() {
                 disabled={false}
                 width="35%"
                 height="40px"
-                buttonText="Talk Now 👈"
+                buttonText="Talk Now"
                 rounded="rounded-full"
               />
             </div>
@@ -130,5 +130,5 @@ export default function Home() {
         </div>
       </div>
     </div>
-  );
+  )
 }

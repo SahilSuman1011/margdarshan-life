@@ -1,8 +1,9 @@
-import React from "react"
 import { Avatar, Button, Chip, Typography } from "@mui/material"
 import { Briefcase, Building2, Calendar } from "lucide-react"
+import { useRouter } from "next/navigation"
 
 const MentorCard = ({ mentor }) => {
+  const router = useRouter()
   return (
     <div className="mb-4 bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="flex p-6">
@@ -32,6 +33,9 @@ const MentorCard = ({ mentor }) => {
               variant="contained"
               startIcon={<Calendar className="w-4 h-4" />}
               className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full transition duration-300 ease-in-out transform hover:scale-105"
+              onClick={() => {
+                router.push(`/mentors/book/${mentor.id}`)
+              }}
             >
               Book Session
             </Button>
