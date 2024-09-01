@@ -20,6 +20,7 @@ import {
   ClockIcon,
   HourglassIcon,
   VideoIcon,
+  ChevronLeft,
 } from "lucide-react"
 import {
   DateCalendar,
@@ -29,6 +30,7 @@ import {
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFnsV3"
 import { useState } from "react"
 import { format } from "date-fns"
+import Link from "next/link"
 
 const MentorBookingPage = () => {
   const mentor = {
@@ -47,7 +49,14 @@ const MentorBookingPage = () => {
 
   return (
     <div className="mx-auto px-4 py-8 flex h-full flex-col gap-6">
-      <h1 className="text-4xl font-bold text-gray-800">Book your Session</h1>
+      <div className="flex items-center gap-4">
+        <Link href="/mentors">
+          <div className="flex justify-center items-center border-2 border-gray-500 hover:border-gray-700 rounded-xl p-2">
+            <ChevronLeft className="w-6 h-6" />
+          </div>
+        </Link>
+        <h1 className="text-4xl font-bold text-gray-800">Book your Session</h1>
+      </div>
       <div className="flex gap-4">
         <div className="flex flex-col justify-between bg-white rounded-3xl shadow-md p-5 h-full min-w-[500px] items-center">
           <Avatar

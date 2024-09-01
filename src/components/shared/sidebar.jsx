@@ -67,13 +67,17 @@ export default function Sidebar() {
             <Link
               href="/mentors"
               className={
-                pathname === "/mentors"
+                pathname.startsWith("/mentors")
                   ? `${selectedIconColor} bg-[#4956F4] flex w-[50px] lg:w-[90%] rounded-full h-[50px] lg:p-3 lg:rounded-2xl items-center gap-3 justify-center lg:justify-normal`
                   : "flex w-[90%] h-[50px] lg:p-3 rounded-2xl items-center gap-3 justify-center lg:justify-normal"
               }
             >
               <WandSparkles
-                color={pathname === "/mentors" ? selectedIconColor : iconColor}
+                color={
+                  pathname.startsWith("/mentors")
+                    ? selectedIconColor
+                    : iconColor
+                }
               />
               <span className="hidden lg:inline">Mentors</span>
             </Link>
