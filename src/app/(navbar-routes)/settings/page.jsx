@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import { useState } from "react"
+import { useState } from "react";
 import {
   User,
   Bolt,
@@ -15,7 +15,7 @@ import {
   X,
   LockOpen,
   Shield,
-} from "lucide-react"
+} from "lucide-react";
 import {
   Dialog,
   DialogTitle,
@@ -31,16 +31,16 @@ import {
   Chip,
   FormControlLabel,
   Checkbox,
-} from "@mui/material"
-import CustomAvatar from "./components/custom_avatar"
-import PrimaryButton from "@/components/buttons/primary_button"
-import SecondaryButton from "@/components/buttons/secondary_button"
-import ImageCropper from "./components/croppie_image_cropper"
-import toast, { Toaster } from "react-hot-toast"
-import { mentorSkills } from "@/utilities/skills"
+} from "@mui/material";
+import CustomAvatar from "./components/custom_avatar";
+import PrimaryButton from "@/components/buttons/primary_button";
+import SecondaryButton from "@/components/buttons/secondary_button";
+import ImageCropper from "./components/croppie_image_cropper";
+import toast, { Toaster } from "react-hot-toast";
+import { mentorSkills } from "@/utilities/skills";
 
 export default function Settings() {
-  const [openDialog, setOpenDialog] = useState(null)
+  const [openDialog, setOpenDialog] = useState(null);
   const [profileData, setProfileData] = useState({
     pfp: "data:image/jpeg;base64,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",
     name: "Swayam",
@@ -49,52 +49,52 @@ export default function Settings() {
     gender: "male",
     mobile: "9876543210",
     email: "swayambansal@outlook.com",
-  })
+  });
 
-  const [isCropSheetOpen, setIsCropSheetOpen] = useState(false)
+  const [isCropSheetOpen, setIsCropSheetOpen] = useState(false);
 
   const [selectedImageBase64String, setSelectedImageBase64String] =
-    useState(null)
+    useState(null);
 
   const handleOpenDialog = (dialogName) => {
-    setOpenDialog(dialogName)
-  }
+    setOpenDialog(dialogName);
+  };
 
   const handleCloseDialog = () => {
-    setOpenDialog(null)
-  }
+    setOpenDialog(null);
+  };
 
   const handleProfileChange = (event) => {
-    const { name, value } = event.target
+    const { name, value } = event.target;
     setProfileData((prevData) => ({
       ...prevData,
       [name]: value,
-    }))
-  }
+    }));
+  };
 
   const handlePfpChange = (croppedImage) => {
     setProfileData((prev) => {
       return {
         ...prev,
         ["pfp"]: croppedImage,
-      }
-    })
-    setIsCropSheetOpen(false)
-  }
+      };
+    });
+    setIsCropSheetOpen(false);
+  };
 
   const handleSaveProfile = () => {
     // Here you would typically send the profileData to your backend API
     // For this example, we'll just log it to the console and close the dialog
-    console.log("Saving profile data:", profileData)
+    console.log("Saving profile data:", profileData);
 
     // TODO: Add API call to save profile data
     // Example: await updateProfileAPI(profileData);
 
     // Close the dialog
-    handleCloseDialog()
-    toast.success("Profile updated successfully!!")
+    handleCloseDialog();
+    toast.success("Profile updated successfully!!");
     // Optionally, show a success message
-  }
+  };
 
   return (
     <div className="container mx-auto p-6">
@@ -294,6 +294,7 @@ export default function Settings() {
               renderTags={(value, getTagProps) =>
                 value.map((option, index) => (
                   <Chip
+                    key={index}
                     variant="outlined"
                     label={option}
                     {...getTagProps({ index })}
@@ -304,7 +305,7 @@ export default function Settings() {
                 setProfileData((prevData) => ({
                   ...prevData,
                   skills: newValue,
-                }))
+                }));
               }}
               value={profileData.skills || []}
             />
@@ -365,9 +366,9 @@ export default function Settings() {
           <PrimaryButton
             clickFunction={() => {
               // Handle feedback submission here
-              console.log("Feedback submitted")
-              onClose()
-              toast.success("Feedback submitted successfully!")
+              console.log("Feedback submitted");
+              onClose();
+              toast.success("Feedback submitted successfully!");
             }}
             disabled={false}
             width="35%"
@@ -389,7 +390,7 @@ export default function Settings() {
         content="Read our terms and conditions."
       />
     </div>
-  )
+  );
 }
 
 function Section({ title, icon, children }) {
@@ -401,7 +402,7 @@ function Section({ title, icon, children }) {
       </h2>
       <div className="space-y-2">{children}</div>
     </div>
-  )
+  );
 }
 
 function SettingItem({ onClick, icon, children }) {
@@ -413,7 +414,7 @@ function SettingItem({ onClick, icon, children }) {
       <div className="bg-gray-100 p-3 rounded-xl mr-3">{icon}</div>
       <span>{children}</span>
     </button>
-  )
+  );
 }
 
 function SettingDialog({ open, onClose, title, content, actions }) {
@@ -431,5 +432,5 @@ function SettingDialog({ open, onClose, title, content, actions }) {
         {actions}
       </DialogActions>
     </Dialog>
-  )
+  );
 }

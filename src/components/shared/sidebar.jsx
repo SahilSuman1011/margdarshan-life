@@ -37,7 +37,7 @@ export default function Sidebar() {
         <div className="hidden lg:flex flex-col">
           <span className={`${textColor} text-lg font-bold`}>Margdarshan</span>
           <span className={`${textColor} text-xs font-medium`}>
-            "Connect. Learn. Thrive."
+            &quot;Connect. Learn. Thrive.&quot;
           </span>
         </div>
       </div>
