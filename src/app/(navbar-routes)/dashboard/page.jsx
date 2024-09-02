@@ -2,19 +2,6 @@
 
 import { useState, useEffect } from "react";
 import {
-<<<<<<< HEAD
-  Users,
-  Clock,
-  GraduationCap,
-  CalendarCheck,
-  Bot,
-  Video,
-  MessageCircle,
-} from "lucide-react"
-import PrimaryButton from "@/components/buttons/primary_button"
-import StatCard from "./components/status_card"
-import Greetings from "./components/greetings"
-=======
 	Users,
 	Clock,
 	GraduationCap,
@@ -26,7 +13,6 @@ import Greetings from "./components/greetings"
 import Greetings from "./components/greetings";
 import PrimaryButton from "@/components/buttons/primary_button";
 import StatCard from "./components/status_card";
->>>>>>> 1b7a103 (prettier rules and semicolons)
 
 export default function Home() {
 	const [menteeStats, setMenteeStats] = useState({
