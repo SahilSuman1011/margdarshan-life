@@ -103,12 +103,7 @@ export default function SessionDetailsDialog({
               />
             ) : (
               <>
-                <Rating
-                  name="session-rating"
-                  value={rating}
-                  readOnly
-                  precision={0.5}
-                />
+                <Rating name="session-rating" value={rating} readOnly />
                 <button onClick={handleEditClick} className="ml-2">
                   <Pencil size={16} />
                 </button>
