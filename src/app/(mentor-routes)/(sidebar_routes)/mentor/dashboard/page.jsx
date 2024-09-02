@@ -9,84 +9,69 @@ import {
   Bot,
   Video,
   MessageCircle,
+  IndianRupee,
 } from "lucide-react"
 import PrimaryButton from "@/components/buttons/primary_button"
-import StatCard from "./components/status_card"
-import Greetings from "./components/greetings"
+import StatCard from "@/app/(navbar-routes)/dashboard/components/status_card"
+import MentorGreetings from "./components/mentor_greetings"
+import TransactionsChart from "./components/transactions_chart"
+import MentorEarningsCard from "./components/earning_select"
 
 export default function Home() {
-  const [menteeStats, setMenteeStats] = useState({
-    sessionsAttended: 0,
+  const [mentorStats, setMentorStats] = useState({
+    sessionsTaken: 0,
     totalHours: 0,
-    skillsImproved: 0,
+    totalEarnings: 0,
     upcomingSessions: 0,
   })
 
   useEffect(() => {
-    setMenteeStats({
-      sessionsAttended: 12,
+    setMentorStats({
+      sessionsTaken: 12,
       totalHours: 18,
-      skillsImproved: 5,
+      totalEarnings: "₹50,000",
       upcomingSessions: 2,
     })
   }, [])
 
   return (
     <div className="px-4 py-8 flex flex-col h-full gap-4">
-      <Greetings />
+      <MentorGreetings />
       <div className="flex flex-row gap-8 h-full justify-between">
         <div className="flex flex-col gap-4">
           <div className="flex flex-row gap-4">
             <StatCard
               titleColor="text-gray-500"
               icon={<Users className="text-blue-500" size={30} />}
-              title="Sessions Attended"
-              value={menteeStats.sessionsAttended}
-            />
-            <StatCard
-              titleColor=""
-              icon={<Clock className="text-green-500" size={30} />}
-              title="Learning Hours"
-              value={`${menteeStats.totalHours}h`}
-            />
-          </div>
-          <div className="flex flex-row gap-4">
-            <StatCard
-              titleColor="text-gray-500"
-              icon={<GraduationCap className="text-purple-500" size={30} />}
-              title="Skills Improved"
-              value={menteeStats.skillsImproved}
+              title="Sessions Taken"
+              value={mentorStats.sessionsTaken}
             />
             <StatCard
               titleColor="text-gray-500"
               icon={<CalendarCheck className="text-orange-500" size={30} />}
               title="Upcoming Sessions"
-              value={menteeStats.upcomingSessions}
+              value={mentorStats.upcomingSessions}
             />
           </div>
-          <div className="h-full w-full bg-white rounded-3xl shadow-lg shadow-gray-300 p-6 flex flex-col">
-            <span className="text-xl font-bold">Talk to AI mentor</span>
-
-            <div className="mt-4 flex flex-col items-center">
-              <div className="w-24 h-24 bg-[#e0e3ff] rounded-full flex items-center justify-center mb-4">
-                <Bot className="text-[#4956F4]" size={40} />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Meet Lia</h3>
-              <p className="text-gray-600 text-center mb-4">
-                Your AI mentor, available 24/7
-              </p>
-              <PrimaryButton
-                // clickFunction={}
-                disabled={false}
-                width="35%"
-                height="40px"
-                buttonText="Talk Now"
-                rounded="rounded-full"
-              />
-            </div>
+          <div className="flex flex-row gap-4">
+            <StatCard
+              titleColor="text-gray-500"
+              icon={<IndianRupee className="text-purple-500" size={30} />}
+              title="Hours Taught"
+              value={mentorStats.totalHours}
+            />
+            <StatCard
+              titleColor="text-gray-500"
+              icon={<IndianRupee className="text-orange-500" size={30} />}
+              title="Total Earnings"
+              value={mentorStats.totalEarnings}
+            />
+          </div>
+          <div className="h-full w-full bg-white mb-4 rounded-3xl shadow-lg shadow-gray-300 flex flex-col">
+            <TransactionsChart />
           </div>
         </div>
-        <div className="flex flex-col gap-4 bg-white shadow-lg shadow-gray-300 p-6 rounded-3xl w-full ">
+        <div className="flex flex-col gap-4 mb-4 bg-white shadow-lg shadow-gray-300 p-6 rounded-3xl w-full ">
           <h1 className="text-2xl font-bold mb-6">Upcoming Sessions</h1>
           <div className="flex flex-col gap-4">
             <div className="flex items-center justify-between p-4 bg-gray-100 rounded-xl">
